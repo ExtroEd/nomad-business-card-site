@@ -2,88 +2,147 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linda Nguyen | Software Engineer</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div>
-        <header>
-            <div class="mainbanner">
-                <div class="navigation">
-                    {% for main in main_info %}
-                    <h5>Привет, меня зовут</h5>
-                    <h1>{{main.fullname}}</h1>
-                    <p>{{main.profession}}</p>
-                    <div class="nav_buttons">
-                        <a href={{main.resume_file}}>Резюме</a>
-                        <a href="">Контакты</a>
-                    </div>
-                </div>
-                <div class="banner_image">
-                    <img class="main_image" src={{main.image}}>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                {% for main in main_info %}
+                <h5>Hello, I'm</h5>
+                <h1>{{ main.fullname }}</h1>
+                <h3>{{ main.profession }}</h3>
+                <div class="header-buttons">
+                    <a class="btn" href="{{ main.resume_file }}">Resume</a>
+                    <a class="btn" href="#contact">Let's Connect!</a>
                 </div>
                 {% endfor %}
+                <div class="scroll">
+                    <p>Scroll Down</p>
+                </div>
             </div>
-        </header>
-        <div class="about_me">
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section class="about">
+        <div class="container">
             <h2>About Me</h2>
             {% for main in main_info %}
-            <div class="about_me_image">
-                <img class="about_me_img" src={{main.image}}>
-            </div>
-            <div class="about_me_text">
-                <h3>
-                    {{main.about_me | safe}}
-                </h3>
-                <div class="about_cards">
-                    {% for add in additional %}
-                    <article class="about_card">
-                        <div class="add_header">
-                            <img class="icon_additional" src="{{add.icon}}">
-                            <h4 class="add_title">{{add.title}}</h4>
-                        </div>
-                        <h6 class="add_text">{{add.text | safe}}</h6>
-                    </article>
-                    {% endfor %}
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="{{ main.image }}" alt="About Image">
+                </div>
+                <div class="about-text">
+                    <p>{{ main.about_me|safe }}</p>
                 </div>
             </div>
             {% endfor %}
         </div>
-        <div class="experience">
-            <h3>Мой опыт</h3>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>Full-Stack Development</h4>
+                </div>
+                <div class="skill-item">
+                    <h4>DevOps & Infrastructure</h4>
+                </div>
+                <div class="skill-item">
+                    <h4>OOP & DSA</h4>
+                </div>
+                <div class="skill-item">
+                    <h4>Cloud Computing</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <div class="container">
+            <h2>My Experience</h2>
             {% for exp in experience %}
-            <div class="experience_items">
-                <h3 class="exp_title">{{exp.title}}</h3>
-                <h6 class="exp_text">{{exp.text | safe}}</h6>
+            <div class="experience-item">
+                <h3>{{ exp.title }}</h3>
+                <p>{{ exp.text|safe }}</p>
             </div>
             {% endfor %}
         </div>
-        <div class="work">
-            <h2 class="work_title">Опыт работы</h2>
-            <article class="work_items">
+    </section>
+
+    <!-- Work Section -->
+    <section class="work">
+        <div class="container">
+            <h2>Work</h2>
+            <div class="work-grid">
                 {% for wk in work_experience %}
-                <svg class="work_icon">{{wk.icon}}</svg>
-                <h5 class="work_title">{{wk.company_name}}</h5>
-                <h5 class="work_position">{{wk.position}}</h5>
-                <small class="work_text">{{wk.responsibility | safe}}</small>
+                <div class="work-item">
+                    <img src="{{ wk.icon }}" alt="{{ wk.company_name }}">
+                    <h4>{{ wk.company_name }}</h4>
+                    <p>{{ wk.position }}</p>
+                    <p>{{ wk.responsibility|safe }}</p>
+                </div>
                 {% endfor %}
-            </article>
-
+            </div>
         </div>
-        <div class="leadership">
-            <h2 class="work_title">Опыт лидерства</h2>
-            <article class="work_items">
-                {% for leader in leadership %}
-                <svg class="work_icon">{{leader.icon}}</svg>
-                <h5 class="work_title">{{leader.company_name}}</h5>
-                <h5 class="work_position">{{leader.position}}</h5>
-                <small class="work_text">{{leader.responsibility | safe}}</small>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                {% for project in portfolio %}
+                <div class="portfolio-item">
+                    <img src="{{ project.image }}" alt="{{ project.project_name }}">
+                    <h4>{{ project.project_name }}</h4>
+                    <a href="{{ project.github_link }}">Github</a>
+                    <a href="{{ project.live_demo }}">Live Demo</a>
+                </div>
                 {% endfor %}
-            </article>
-
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            {% for main in main_info %}
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>{{ main.email }}</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Phone</h4>
+                    <p>{{ main.phone_number }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message!</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright © Linda Nguyen. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>

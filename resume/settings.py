@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     "rest_framework",
 
-    "mainpage",
+    'mainpage',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,9 @@ WSGI_APPLICATION = "resume.wsgi.application"
 
 STATIC_URL = '/static/'
 
-# Добавьте путь к статическим файлам, если у вас они лежат вне приложения
-STATICFILES_DIRS = [BASE_DIR]
+# Добавьте пути к статическим файлам, если они хранятся в разных местах
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -140,7 +141,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
 # CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 # Default primary key field type

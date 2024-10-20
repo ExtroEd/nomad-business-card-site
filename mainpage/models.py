@@ -1,15 +1,12 @@
-import os
-
-from django.db import models
 from ckeditor.fields import RichTextField
-
+from django.db import models
 from mainpage.utils import directory_path
 
 
 class PersonalInfo(models.Model):
     fullname = models.CharField("Полное имя", max_length=255)
     profession = models.CharField("Профессия", max_length=255)
-    image = models.ImageField("Картинка баннера", upload_to=    directory_path, null=True)
+    image = models.ImageField("Картинка баннера", upload_to=directory_path, null=True)
     image_mobile = models.ImageField("Картинка баннера для мобилки", upload_to=directory_path, null=True)
     resume_file = models.FileField("Файл резюме", upload_to=directory_path)
     about_me = RichTextField("Текст обо мне")
@@ -19,7 +16,7 @@ class PersonalInfo(models.Model):
     phone_number = models.CharField("Номер телефона", max_length=255, default="")
 
     class Meta:
-        verbose_name = "Персональная информальная"
+        verbose_name = "Персональная информация"
         verbose_name_plural = "Персональная информация"
 
     def __str__(self):
@@ -56,6 +53,7 @@ class WorkExperience(models.Model):
     position = models.CharField("Позиция на работе", max_length=255)
     responsibility = RichTextField("Обязанности на работе")
     leadership = models.BooleanField("Лидерство", default=False)
+
     class Meta:
         verbose_name = "Опыт работы"
         verbose_name_plural = "Опыт работы"

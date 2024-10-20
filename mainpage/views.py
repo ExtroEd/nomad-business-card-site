@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import *
+from .models import PersonalInfo, AdditionalInfo, Experience, WorkExperience, Portfolio
 
 
 def main_banner(request):
