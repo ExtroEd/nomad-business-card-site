@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = "django-insecure-d7nlw$m2rfwl-q=@b_kzh&db$d0kz@r9k24-&lk3y)dqfuj#aj
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -75,10 +73,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "resume.wsgi.application"
 
-STATIC_URL = '/static/'
-
-# Добавьте пути к статическим файлам, если они хранятся в разных местах
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATIC_URL = '/static/'
+#
+# # Добавьте пути к статическим файлам, если они хранятся в разных местах
+# STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -119,7 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -137,7 +134,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -148,7 +144,6 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 CKEDITOR_DEFAULT_CONFIGS = {
     'default': {
         'toolbar': 'full',
@@ -156,3 +151,6 @@ CKEDITOR_DEFAULT_CONFIGS = {
         'width': 300,
     },
 }
+
+STATIC_URL = '/static/'  # URL для статических файлов
+STATICFILES_DIRS = [BASE_DIR / 'static']

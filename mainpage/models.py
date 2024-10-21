@@ -1,6 +1,6 @@
 from ckeditor.fields import RichTextField
 from django.db import models
-from mainpage.utils import directory_path
+from .utils import directory_path
 
 
 class PersonalInfo(models.Model):
@@ -21,6 +21,7 @@ class PersonalInfo(models.Model):
 
     def __str__(self):
         return self.fullname
+
 
 class AdditionalInfo(models.Model):
     icon = models.ImageField("Иконка", upload_to=directory_path)

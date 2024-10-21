@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linda Nguyen | Software Engineer</title>
+    <title>Miyagami Lait | Software Engineer</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -36,11 +36,23 @@
             {% for main in main_info %}
             <div class="about-content">
                 <div class="about-img">
-                    <img src="{{ main.image }}" alt="About Image">
+                    <img src="{{ main.image.url }}" alt="About Image">
                 </div>
                 <div class="about-text">
                     <p>{{ main.about_me|safe }}</p>
                 </div>
+            </div>
+
+            <!-- Additional Info -->
+            <h3>Дополнительная информация</h3>
+            <div class="additional-info-grid">
+                {% for info in additional_info %}
+                <div class="additional-info-item">
+                    <img src="{{ info.icon.url }}" alt="{{ info.title }}">
+                    <h4>{{ info.title }}</h4>
+                    <p>{{ info.text|safe }}</p>
+                </div>
+                {% endfor %}
             </div>
             {% endfor %}
         </div>
@@ -68,9 +80,10 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="experience">
-        <div class="container">
-            <h2>My Experience</h2>
+<section class="experience">
+    <div class="container">
+        <h2>My Experience</h2>
+        <div class="experience-grid">
             {% for exp in experience %}
             <div class="experience-item">
                 <h3>{{ exp.title }}</h3>
@@ -78,7 +91,8 @@
             </div>
             {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Work Section -->
     <section class="work">
@@ -87,7 +101,7 @@
             <div class="work-grid">
                 {% for wk in work_experience %}
                 <div class="work-item">
-                    <img src="{{ wk.icon }}" alt="{{ wk.company_name }}">
+                    <img src="{{ wk.icon.url }}" alt="{{ wk.company_name }}">
                     <h4>{{ wk.company_name }}</h4>
                     <p>{{ wk.position }}</p>
                     <p>{{ wk.responsibility|safe }}</p>
@@ -104,7 +118,7 @@
             <div class="portfolio-grid">
                 {% for project in portfolio %}
                 <div class="portfolio-item">
-                    <img src="{{ project.image }}" alt="{{ project.project_name }}">
+                    <img src="{{ project.image.url }}" alt="{{ project.project_name }}">
                     <h4>{{ project.project_name }}</h4>
                     <a href="{{ project.github_link }}">Github</a>
                     <a href="{{ project.live_demo }}">Live Demo</a>
