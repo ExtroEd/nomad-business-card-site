@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
 from .models import PersonalInfo, AdditionalInfo, Experience, WorkExperience, Portfolio
+from rest_framework import generics
+from .serializers import (PersonalInfoSerializer, AdditionalInfoSerializer,
+                          ExperienceSerializer, WorkExperienceSerializer, PortfolioSerializer)
 
 
 def main_banner(request):
@@ -22,3 +25,24 @@ def main_banner(request):
             "portfolio": portfolio
         }
     )
+
+
+class PersonalInfoListCreateAPIView(generics.ListCreateAPIView):
+    queryset = PersonalInfo.objects.all()
+    serializer_class = PersonalInfoSerializer
+
+class AdditionalInfoListCreateAPIView(generics.ListCreateAPIView):
+    queryset = AdditionalInfo.objects.all()
+    serializer_class = AdditionalInfoSerializer
+
+class ExperienceListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Experience.objects.all()
+    serializer_class = ExperienceSerializer
+
+class WorkExperienceListCreateAPIView(generics.ListCreateAPIView):
+    queryset = WorkExperience.objects.all()
+    serializer_class = WorkExperienceSerializer
+
+class PortfolioListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Portfolio.objects.all()
+    serializer_class = PortfolioSerializer
