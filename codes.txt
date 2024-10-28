@@ -66,3 +66,5 @@ http://127.0.0.1:8000/additional-info/ — дополнительная инфо
 http://127.0.0.1:8000/experience/ — опыт
 http://127.0.0.1:8000/work-experience/ — рабочий опыт
 http://127.0.0.1:8000/portfolio/ — проекты
+
+Пароль: "bvzl ayje wxxp yjxc"

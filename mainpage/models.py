@@ -76,3 +76,16 @@ class Portfolio(models.Model):
 
     def __str__(self):
         return self.project_name
+
+
+class ContactMessage(models.Model):
+    fullname = models.CharField("Полное имя", max_length=255)
+    email = models.EmailField("Email")
+    message = models.TextField("Сообщение")
+
+    class Meta:
+        verbose_name = "Сообщение"
+        verbose_name_plural = "Сообщения"
+
+    def __str__(self):
+        return self.fullname

@@ -12,6 +12,7 @@ class PersonalInfoAdmin(admin.ModelAdmin):
 class AdditionalInfoAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
     pass

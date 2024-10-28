@@ -1,48 +1,53 @@
 from django.shortcuts import render
-
-from .models import PersonalInfo, AdditionalInfo, Experience, WorkExperience, Portfolio
-from rest_framework import generics
-from .serializers import (PersonalInfoSerializer, AdditionalInfoSerializer,
-                          ExperienceSerializer, WorkExperienceSerializer, PortfolioSerializer)
+from rest_framework.generics import ListAPIView, CreateAPIView
+from .models import PersonalInfo, AdditionalInfo, Experience, WorkExperience, Portfolio, ContactMessage
+from .serializers import (
+    PersonalInfoSerializer,
+    AdditionalInfoSerializer,
+    ExperienceSerializer,
+    WorkExperienceSerializer,
+    PortfolioSerializer,
+    ContactMessageSerializer
+)
 
 
 def main_banner(request):
-    main_info = PersonalInfo.objects.all()
-    additional = AdditionalInfo.objects.all()
-    experience = Experience.objects.all()
-    work_experience = WorkExperience.objects.all()
-    portfolio = Portfolio.objects.all()
-    leadership = WorkExperience.objects.filter(leadership=True)
-    return render(
-        request,
-        "base.html",
-        {
-            "main_info": main_info,
-            "additional": additional,
-            "experience": experience,
-            "work_experience": work_experience,
-            "leadership" : leadership,
-            "portfolio": portfolio
-        }
-    )
+    context = {
+        "main_info": PersonalInfo.objects.all(),
+        "additional": AdditionalInfo.objects.all(),
+        "experience": Experience.objects.all(),
+        "work_experience": WorkExperience.objects.all(),
+        "leadership": WorkExperience.objects.filter(leadership=True),
+        "portfolio": Portfolio.objects.all(),
+    }
+    return render(request, "base.html", context)
 
 
-class PersonalInfoListCreateAPIView(generics.ListCreateAPIView):
+class PersonalInfoListCreateAPIView(ListAPIView):
     queryset = PersonalInfo.objects.all()
     serializer_class = PersonalInfoSerializer
 
-class AdditionalInfoListCreateAPIView(generics.ListCreateAPIView):
+
+class AdditionalInfoListCreateAPIView(ListAPIView):
     queryset = AdditionalInfo.objects.all()
     serializer_class = AdditionalInfoSerializer
 
-class ExperienceListCreateAPIView(generics.ListCreateAPIView):
+
+class ExperienceListCreateAPIView(ListAPIView):
     queryset = Experience.objects.all()
     serializer_class = ExperienceSerializer
 
-class WorkExperienceListCreateAPIView(generics.ListCreateAPIView):
+
+class WorkExperienceListCreateAPIView(ListAPIView):
     queryset = WorkExperience.objects.all()
     serializer_class = WorkExperienceSerializer
 
-class PortfolioListCreateAPIView(generics.ListCreateAPIView):
+
+class PortfolioListCreateAPIView(ListAPIView):
     queryset = Portfolio.objects.all()
     serializer_class = PortfolioSerializer
+
+
+class ContactMeAPIView(CreateAPIView):
+    queryset = ContactMessage.objects.all()
+    serializer_class = ContactMessageSerializer
