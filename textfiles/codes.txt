@@ -57,14 +57,3 @@ git push origin main --force
 
 # Получить последние изменения из удалённого репозитория
 git pull origin main
-
-Swagger UI: http://127.0.0.1:8000/api/schema/swagger-ui/
-ReDoc: http://127.0.0.1:8000/api/schema/redoc/
-
-http://127.0.0.1:8000/personal-info/ — персональная информация
-http://127.0.0.1:8000/additional-info/ — дополнительная информация
-http://127.0.0.1:8000/experience/ — опыт
-http://127.0.0.1:8000/work-experience/ — рабочий опыт
-http://127.0.0.1:8000/portfolio/ — проекты
-
-Пароль: "bvzl ayje wxxp yjxc"

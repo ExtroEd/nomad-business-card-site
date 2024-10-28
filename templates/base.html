@@ -144,18 +144,42 @@
                 </div>
             </div>
             {% endfor %}
-            <form action="" method="post">
+            <form id="contactForm">
                 {% csrf_token %}
                 <input type="text" name="name" placeholder="Your Full Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn">Send Message!</button>
             </form>
+
+            <script>
+                document.getElementById("contactForm").addEventListener("submit", function(event) {
+                    event.preventDefault();
+
+                    const name = event.target.name.value;
+                    const email = event.target.email.value;
+                    const message = event.target.message.value;
+
+                    fetch("{% url 'send-email' %}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": "{{ csrf_token }}",
+                        },
+                        body: JSON.stringify({ name, email, message })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.status || data.error);
+                    })
+                    .catch(error => console.error("Error:", error));
+                });
+            </script>
         </div>
     </section>
 
     <footer>
-        <p>Copyright © Linda Nguyen. All rights reserved.</p>
+        <p>Open Source</p>
     </footer>
 
 </body>

@@ -8,6 +8,8 @@ from .views import (
     PortfolioListCreateAPIView,
     ContactMeAPIView,
 )
+from . import views
+
 
 urlpatterns = [
     path("", main_banner, name="main-banner"),
@@ -17,4 +19,6 @@ urlpatterns = [
     path("work-experience/", WorkExperienceListCreateAPIView.as_view(), name="work-experience"),
     path("portfolio/", PortfolioListCreateAPIView.as_view(), name="portfolio"),
     path("contact-me/", ContactMeAPIView.as_view(), name="contact-me"),
+    path('test-email/', views.test_view, name='test-email'),
+    path("send-email/", views.send_email_view, name="send-email"),
 ]
