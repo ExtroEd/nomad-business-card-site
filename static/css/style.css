@@ -11,6 +11,7 @@ body, html {
     margin: 0 auto;
 }
 
+
 /* Header Section */
 .header {
     display: flex;
@@ -54,28 +55,40 @@ body, html {
     background-color: #8e24aa;
 }
 
+
 /* About Section */
 .about {
     padding: 50px 0;
     background-color: #4a148c;
+    color: white;
+    text-align: center; /* Центрируем текст */
 }
 
 .about-content {
     display: flex;
     align-items: center;
+    justify-content: center; /* Центрируем содержимое */
     gap: 30px;
+    margin-bottom: 50px; /* Отступ снизу */
 }
 
 .about-img img {
-    width: 300px;
+    width: 250px; /* Уменьшаем размер изображения */
+    height: 250px; /* Подгоняем высоту под ширину */
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s; /* Добавляем эффект при наведении */
+}
+
+.about-img img:hover {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
 }
 
 .about-text {
     max-width: 600px;
     line-height: 1.6;
 }
+
 
 /* Additional Info Section */
 .additional-info {
@@ -85,7 +98,7 @@ body, html {
 .additional-info-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center; /* Центрируем элементы */
     gap: 20px;
 }
 
@@ -95,13 +108,19 @@ body, html {
     padding: 20px;
     flex: 1 1 calc(30% - 20px);
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s; /* Добавляем эффект при наведении */
+}
+
+.additional-info-item:hover {
+    transform: translateY(-5px); /* Подъем элемента при наведении */
 }
 
 .additional-info-item img {
     width: 50px;
     margin-bottom: 10px;
 }
+
 
 /* Skills Section */
 .skills {
@@ -137,6 +156,7 @@ body, html {
     border: 2px solid #003366;
 }
 
+
 /* Experience Section */
 .experience {
     padding: 50px 0;
@@ -164,6 +184,7 @@ body, html {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
 
 /* Work Section */
 .work {
@@ -266,6 +287,8 @@ body, html {
 .contact {
     padding: 50px 0;
     background-color: #4a148c;
+    color: white; /* Сделаем текст белым для контраста */
+    text-align: center; /* Центрируем текст */
 }
 
 .contact-info {
@@ -290,6 +313,12 @@ form input, form textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #6a1b9a; /* Изменение цвета рамки при фокусе */
+    outline: none; /* Убираем стандартный контур */
 }
 
 form button {
@@ -298,6 +327,17 @@ form button {
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer; /* Изменение курсора на указатель */
+    transition: background-color 0.3s, transform 0.3s; /* Плавные изменения */
+}
+
+form button:hover {
+    background-color: #9c27b0; /* Изменение цвета кнопки при наведении */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
+
+form button:active {
+    transform: scale(0.95); /* Уменьшение кнопки при нажатии */
 }
 
 

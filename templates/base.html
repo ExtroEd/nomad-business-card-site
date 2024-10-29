@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
     <!-- Header Section -->
     <header class="header">
         <div class="container">
@@ -42,6 +41,7 @@
                     <p>{{ main.about_me|safe }}</p>
                 </div>
             </div>
+            {% endfor %}
 
             <!-- Additional Info -->
             <h3>Дополнительная информация</h3>
@@ -54,7 +54,6 @@
                 </div>
                 {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </section>
 
@@ -80,19 +79,19 @@
     </section>
 
     <!-- Experience Section -->
-<section class="experience">
-    <div class="container">
-        <h2>My Experience</h2>
-        <div class="experience-grid">
-            {% for exp in experience %}
-            <div class="experience-item">
-                <h3>{{ exp.title }}</h3>
-                <p>{{ exp.text|safe }}</p>
+    <section class="experience">
+        <div class="container">
+            <h2>My Experience</h2>
+            <div class="experience-grid">
+                {% for exp in experience %}
+                <div class="experience-item">
+                    <h3>{{ exp.title }}</h3>
+                    <p>{{ exp.text|safe }}</p>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Work Section -->
     <section class="work">
@@ -177,6 +176,7 @@
             </script>
         </div>
     </section>
+
 
     <footer>
         <p>Open Source</p>
